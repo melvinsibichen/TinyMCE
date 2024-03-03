@@ -1,0 +1,13 @@
+.exportbtn {
+    background-color: black;
+    color: #fff;
+    padding: 8px 22px;
+    border-radius: 6px;
+    transition: all 0.2s ease ease-in-out;
+    float: right;
+    margin-right: 30px;
+}
+
+.exportbtn:active {
+    transform: scale(1.10);
+}
