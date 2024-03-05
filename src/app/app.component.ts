@@ -17,8 +17,6 @@ export class AppComponent {
     branding: false,
     promotion: false,
     statusbar: false,
-    // width: 1000,
-    // height: 300,
     plugins: [
       'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'prewiew', 'anchor', 'pagebreak',
       'searchplace', 'wordcount', 'visualblocks', 'code', 'fullscreen', 'insertdatetime', 'media',
@@ -36,7 +34,7 @@ export class AppComponent {
 
   @ViewChild('contentToConvert') contentToConvert!: ElementRef;
 
-  exportAsPDF() {
+  exporthtmlAsPDF() {
     const element = this.contentToConvert.nativeElement;
     const opt = {
       margin: 0.5,
@@ -45,9 +43,19 @@ export class AppComponent {
       html2canvas: { scale: 2 },
       jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
     };
-
-    // New Promise-based usage:
     html2pdf().from(element).set(opt).save();
+  }
+
+
+  export() {
+    console.log(this.htmlContent);
+    const blob = new Blob([this.htmlContent], { type: 'text/html' });
+    const anchor = document.createElement('a');
+    anchor.download = 'exported_content.html';
+    anchor.href = window.URL.createObjectURL(blob);
+    anchor.click();
+    window.URL.revokeObjectURL(anchor.href);
+    anchor.remove();
   }
 
 }
