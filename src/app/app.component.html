@@ -1,11 +1,16 @@
 <editor [init]="editorConfig" [(ngModel)]="htmlContent" class="editor"></editor>
 <br>
-<button class="exportbtn" (click)="export()">Export File </button>
+<button class="exportbtn" (click)="export()">EXPORT HTML </button>
+<button class="exportbtn" (click)="exportdoc()">EXPORT WORD</button>
+
+<!-- <input type="file" (change)="importFile($event)" accept=".docx, .xlsx" class="file" /> -->
 
 
 
-<!-- <button class="exportbtn" (click)="exporthtmlAsPDF()">Export Html</button> -->
+
+<!-- <button class="exportbtn" (click)="exportAsWord()">HTML WORD</button> -->
+ <button class="exportbtn" (click)="exporthtmlAsPDF()">HTML PDF</button>
 <br>
-<!-- <div #contentToConvert>
+ <div #contentToConvert>
   {{ htmlContent }}
-</div> -->
+</div>
